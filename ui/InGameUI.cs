@@ -28,6 +28,8 @@ public class InGameUI : Control
             dbg.AddChild(label);
 
             BuggyWheelMapping.Add(Tuple.Create(label, it));
+
+            break;
         }
     }
 
