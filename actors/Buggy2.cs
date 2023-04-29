@@ -210,8 +210,9 @@ public class Buggy2 : Spatial
             this.FindChildByName<Spatial>("OffscreenAim").LookAt(destLoc.GlobalTranslation, Vector3.Up);
 
             var isBehind = GetViewport().GetCamera().IsPositionBehind(destLoc.GlobalTranslation);
+            var upx = GetViewport().GetCamera().UnprojectPosition(destLoc.GlobalTranslation);
 
-            destLoc.Visible = isBehind;
+            this.FindChildByName<Spatial>("OffscreenAim").Visible = isBehind || upx.x < 0 || upx.x > GetViewport().Size.x || upx.y < 0 || upx.y > GetViewport().Size.y;
 
             // if (isBehind)
 
