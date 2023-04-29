@@ -15,7 +15,9 @@ public class InGameUI : Control
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        this.FindChildByName<Label>("Label").Text = $"Time Left: {Mathf.RoundToInt(TimeLeft)}\nScore: {Score}";
+        var pc = GetTree().CurrentScene.FindChildByType<Buggy2>();
+
+        this.FindChildByName<Label>("Label").Text = $"Time Left: {Mathf.RoundToInt(TimeLeft)}\nScore: {Score}\nHas Cargo: {pc.HasCargo}\nDest: {pc.Destination}";
 
         TimeLeft -= delta;
     }
