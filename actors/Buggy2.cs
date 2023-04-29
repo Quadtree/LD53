@@ -71,17 +71,19 @@ public class Buggy2 : Spatial
             }
         }
 
+        var baseRotation = this.FindChildByName<Spatial>("Buggy2Body").Rotation;
+
         foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
         {
             if (it.Joint == null) continue;
             //GD.Print(it.Transform.origin.x);
             if (LeftWheels.Contains(it))
             {
-                it.AngularVelocity = new Vector3(leftWheelPower * -EnginePower, 0, 0);
+                it.AngularVelocity = baseRotation * leftWheelPower * -EnginePower;
             }
             else
             {
-                it.AngularVelocity = new Vector3(rightWheelPower * -EnginePower, 0, 0);
+                it.AngularVelocity = baseRotation * rightWheelPower * -EnginePower;
             }
 
             // if (it.Transform.origin.x < 0)
