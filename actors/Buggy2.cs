@@ -3,7 +3,7 @@ using Godot;
 
 public class Buggy2 : Spatial
 {
-    float EnginePower = 1.5f;
+    float EnginePower = 7f;
 
     public override void _Ready()
     {
