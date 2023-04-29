@@ -76,10 +76,10 @@ FieldSize = 50.0
 RockScaling = 1.0
 
 [node name="RockField2" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8205, 11.0475, -60.6287 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8205, 3.71393, -60.6287 )
 script = ExtResource( 8 )
 NumRocks = 6
-FieldSize = 20.0
+FieldSize = 35.0
 RockTypeOverride = "res://actors/rocks/Boulder.tscn"
 
 [editable path="heightmap"]
