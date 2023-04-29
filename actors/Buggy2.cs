@@ -188,6 +188,12 @@ public class Buggy2 : Spatial
         {
             body.LinearDamp = 0;
             body.AngularDamp = 0;
+
+            foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
+            {
+                it.LinearDamp = 0;
+                it.AngularDamp = 0;
+            }
         }
     }
 }
