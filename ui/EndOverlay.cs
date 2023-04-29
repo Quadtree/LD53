@@ -9,7 +9,14 @@ public class EndOverlay : Control
 
         if (@event is InputEventKey)
         {
-            GetTree().ChangeScene("res://maps/Moon1.tscn");
+            if (@event.IsActionPressed("restart_game"))
+            {
+                GetTree().ChangeScene("res://maps/Moon1.tscn");
+            }
+            else
+            {
+                QueueFree();
+            }
         }
     }
 }
