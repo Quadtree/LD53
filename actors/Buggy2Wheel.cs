@@ -3,7 +3,7 @@ using Godot;
 
 public class Buggy2Wheel : RigidBody
 {
-    Generic6DOFJoint Joint;
+    public Generic6DOFJoint Joint;
 
     public override void _Ready()
     {

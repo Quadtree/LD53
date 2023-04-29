@@ -46,11 +46,25 @@ public class Buggy2 : Spatial
 
         foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
         {
+            if (it.Joint == null) continue;
             //GD.Print(it.Transform.origin.x);
+            // if (it.Transform.origin.x < 0)
+            //     it.AngularVelocity = new Vector3(leftWheelPower * -EnginePower, 0, 0);
+            // else
+            //     it.AngularVelocity = new Vector3(rightWheelPower * -EnginePower, 0, 0);
+
             if (it.Transform.origin.x < 0)
-                it.AngularVelocity = new Vector3(leftWheelPower * -EnginePower, 0, 0);
+            {
+                it.Joint.AngularMotorX__enabled = true;
+                it.Joint.AngularMotorX__forceLimit = 10_000;
+                it.Joint.AngularMotorX__targetVelocity = leftWheelPower * -EnginePower;
+            }
             else
-                it.AngularVelocity = new Vector3(rightWheelPower * -EnginePower, 0, 0);
+            {
+                it.Joint.AngularMotorX__enabled = true;
+                it.Joint.AngularMotorX__forceLimit = 10_000;
+                it.Joint.AngularMotorX__targetVelocity = rightWheelPower * -EnginePower;
+            }
         }
     }
 }
