@@ -7,6 +7,11 @@ public class Buggy2Wheel : RigidBody
 
     public override void _Ready()
     {
+        CallDeferred(nameof(SetupJoints));
+    }
+
+    void SetupJoints()
+    {
         Joint = new Generic6DOFJoint();
         GetParent().AddChild(Joint);
         //Joint.Nodes__nodeA = this.GetParent().FindChildByName<RigidBody>("Buggy2Body");
