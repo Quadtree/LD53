@@ -4,7 +4,7 @@ using Godot;
 
 public class Buggy2 : Spatial
 {
-    float EnginePower = 7f;
+    float EnginePower = 20f;
 
     List<Node> LeftWheels;
     List<Node> RightWheels;
@@ -71,7 +71,7 @@ public class Buggy2 : Spatial
             }
         }
 
-        var baseRotation = new Vector3(1, 0, 0);
+        var baseRotation = this.FindChildByName<Spatial>("Buggy2Body").Transform.basis.x;
 
         foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
         {
