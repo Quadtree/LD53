@@ -1,6 +1,6 @@
 # TODO
-- UI font and such
 - Title screen
+- Send screen
 - Sound: Bumping the ground
 - Sound: Engine noise
 - Sound: Arrival SFX
@@ -13,3 +13,4 @@
 - Indicator where you're supposed to go
 - Final buggy graphics
 - Bridge materials
+- UI font and such
