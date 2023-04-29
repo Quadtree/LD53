@@ -7,6 +7,7 @@ public class InGameUI : Control
 {
     public float TimeLeft = 300;
     public int Score = 0;
+    public bool EndScreenShown = false;
 
     public bool ShowDebugData = true;
 
@@ -40,7 +41,7 @@ public class InGameUI : Control
 
         this.FindChildByName<Label>("Label").Text = $"Time Left: {Mathf.RoundToInt(TimeLeft) / 60}:{(Mathf.RoundToInt(TimeLeft) % 60).ToString().PadLeft(2, '0')}\nDeliveries: {Score}";//\nHas Cargo: {pc.HasCargo}\nDest: {pc.Destination}";
 
-        TimeLeft -= delta;
+        TimeLeft = Mathf.Max(TimeLeft - delta, 0);
 
         if (ShowDebugData)
         {
@@ -53,6 +54,12 @@ public class InGameUI : Control
         else
         {
             foreach (var it in BuggyWheelMapping) it.Item1.Visible = false;
+        }
+
+        if (TimeLeft <= 0 && !EndScreenShown)
+        {
+            AddChild(GD.Load<PackedScene>("res://ui/EndOverlay.tscn").Instance());
+            EndScreenShown = true;
         }
     }
 }
