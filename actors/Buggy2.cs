@@ -82,11 +82,13 @@ public class Buggy2 : Spatial
             //GD.Print(it.Transform.origin.x);
             if (LeftWheels.Contains(it))
             {
-                it.AngularVelocity = baseRotation * leftWheelPower * -EnginePower;
+                it.MotorPower = leftWheelPower;
+                //it.AngularVelocity = baseRotation * leftWheelPower * -EnginePower;
             }
             else
             {
-                it.AngularVelocity = baseRotation * rightWheelPower * -EnginePower;
+                it.MotorPower = rightWheelPower;
+                //it.AngularVelocity = baseRotation * rightWheelPower * -EnginePower;
             }
 
             // if (it.Transform.origin.x < 0)

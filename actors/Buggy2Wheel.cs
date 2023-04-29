@@ -33,6 +33,8 @@ public class Buggy2Wheel : RigidBody
     //
     //  }
 
+    public float MotorPower;
+
     public override void _PhysicsProcess(float delta)
     {
         base._PhysicsProcess(delta);
