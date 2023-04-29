@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://actors/Buggy2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/InGameUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/MoonBase.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/ChaseCamera.cs" type="Script" id=4]
 [ext_resource path="res://terrain/heightmap.glb" type="PackedScene" id=5]
+[ext_resource path="res://actors/Bridge.tscn" type="PackedScene" id=6]
 
 [sub_resource type="OpenSimplexNoise" id=6]
 
@@ -66,5 +67,11 @@ environment = SubResource( 10 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.0965008, -0.821279, 0.562307, -0.138914, 0.570527, 0.809445, -0.985592, 0, -0.169143, 0, 51.5652, 0 )
 shadow_enabled = true
+
+[node name="Spatial" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.272364, 0, -0.962194, 0, 1, 0, 0.962194, 0, 0.272364, 22.2522, -1.80337, 83.9116 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.990774, 0, -0.135525, 0, 1, 0, 0.135525, 0, -0.990774, 76.2689, -1.80337, 11.9115 )
 
 [editable path="heightmap"]
