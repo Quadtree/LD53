@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://actors/Buggy2Wheel.cs" type="Script" id=1]
 [ext_resource path="res://meshes/buggy2_wheel.glb" type="PackedScene" id=2]
@@ -10,7 +10,21 @@ rough = true
 height = 0.9
 radius = 1.2
 
+[sub_resource type="OpenSimplexNoise" id=5]
+
+[sub_resource type="NoiseTexture" id=6]
+noise = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.192157, 0.192157, 0.192157, 1 )
+albedo_texture = SubResource( 6 )
+uv1_scale = Vector3( 6, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+metallic = 0.5
+
 [sub_resource type="CylinderMesh" id=3]
+material = SubResource( 4 )
 top_radius = 0.1
 bottom_radius = 0.1
 height = 3.0
@@ -31,6 +45,12 @@ shape = SubResource( 1 )
 [node name="buggy2_wheel" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.517754, 0, 0 )
 
+[node name="Cylinder" parent="buggy2_wheel" index="0"]
+material/0 = SubResource( 7 )
+
+[node name="Icosphere" parent="buggy2_wheel" index="1"]
+material/0 = SubResource( 7 )
+
 [node name="Bar" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0257308, 2.5508, -0.00466728 )
 
@@ -38,3 +58,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0257308, 2.5508, -0.00466728
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
+
+[editable path="buggy2_wheel"]
