@@ -120,6 +120,12 @@ public class Buggy2 : Spatial
             spin.y = 0;
             body.AddTorque(spin * RightingForce);
             RightingForce += 1f;
+
+            if (RightingForce > 800)
+            {
+                body.GlobalRotation = new Vector3(0, 0, 0);
+                body.AngularVelocity = new Vector3(0, 0, 0);
+            }
         }
         else
         {
