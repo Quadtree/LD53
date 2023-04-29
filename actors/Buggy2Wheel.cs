@@ -48,7 +48,7 @@ public class Buggy2Wheel : RigidBody
 
         //AddForce(counterSlideForce, new Vector3(0, 0, 0));
 
-        DebugInfo = $"yRotation={yRotation}\nlocalSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},##,{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\ncounterSlideForce={counterSlideForce}";
+        DebugInfo = $"yRotation={yRotation}\nlocalSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},##,{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\ncounterSlideForce={counterSlideForce}\nVelocity={LinearVelocity}";
     }
 
     public string DebugInfo;
