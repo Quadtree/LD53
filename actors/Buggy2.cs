@@ -161,6 +161,13 @@ public class Buggy2 : Spatial
                 GD.Print($"Jumping out of the pit to {outOfPitLocation}");
                 SetFixedPosition(outOfPitLocation);
             }
+
+            if (PitTime > 5)
+            {
+                var outOfPitLocation = GetTree().CurrentScene.FindChildByName<Spatial>("PitSafeSpot").GlobalTranslation;
+                GD.Print($"REALLY Jumping out of the pit to {outOfPitLocation}");
+                SetFixedPosition(outOfPitLocation);
+            }
         }
         else
         {
