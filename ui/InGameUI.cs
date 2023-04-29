@@ -59,7 +59,21 @@ public class InGameUI : Control
         if (TimeLeft <= 0 && !EndScreenShown)
         {
             AddChild(GD.Load<PackedScene>("res://ui/EndOverlay.tscn").Instance());
+            GetTree().Paused = true;
             EndScreenShown = true;
+        }
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        base._Input(@event);
+
+        if (OS.IsDebugBuild())
+        {
+            if (@event.IsActionPressed("cheat_little_time_left"))
+            {
+                
+            }
         }
     }
 }
