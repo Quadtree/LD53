@@ -1,5 +1,4 @@
 # TODO
-- Bridge materials
 - UI font and such
 - Title screen
 - Sound: Bumping the ground
@@ -13,3 +12,4 @@
 - Buggy suspension
 - Indicator where you're supposed to go
 - Final buggy graphics
+- Bridge materials
