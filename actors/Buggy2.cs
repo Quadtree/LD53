@@ -13,6 +13,9 @@ public class Buggy2 : Spatial
     public Spatial Destination = null;
 
     public float PitTime;
+    public float PrevLocCharge;
+
+    public Vector3[] PreviousLocations = new Vector3[8];
 
     public override void _Ready()
     {
@@ -134,18 +137,29 @@ public class Buggy2 : Spatial
             RightingForce = 10f;
         }
 
+        PrevLocCharge += delta;
+        if (PrevLocCharge >= 1)
+        {
+            PrevLocCharge -= 1;
+            for (var i = PreviousLocations.Length - 1; i > 0; --i)
+            {
+                PreviousLocations[i] = PreviousLocations[i - 1];
+            }
+            PreviousLocations[0] = body.GlobalTranslation;
+        }
+
         if (body.GlobalTranslation.x > 0 && body.GlobalTranslation.z > 0 && body.GlobalTranslation.y < -5)
         {
             GD.Print("IN THE PIT!");
             PitTime += delta;
             if (PitTime > 2)
             {
-
+                body.GlobalTranslation = PreviousLocations[5] + new Vector3(0, 25, 0);
             }
         }
         else
         {
-
+            PitTime = 0;
         }
     }
 }
