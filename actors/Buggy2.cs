@@ -9,6 +9,8 @@ public class Buggy2 : Spatial
     List<Node> LeftWheels;
     List<Node> RightWheels;
 
+    bool HasCargo = false;
+
     public override void _Ready()
     {
 
