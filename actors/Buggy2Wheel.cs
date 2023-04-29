@@ -16,8 +16,8 @@ public class Buggy2Wheel : RigidBody
         AddChild(Joint);
         //Joint.Nodes__nodeA = this.GetParent().FindChildByName<RigidBody>("Buggy2Body");
         //Joint.SetNodeA()
-        Joint.Nodes__nodeA = "../Buggy2Body";
-        Joint.Nodes__nodeB = $"../{Name}";
+        Joint.Nodes__nodeA = "../../Buggy2Body";
+        Joint.Nodes__nodeB = $"../../{Name}";
 
         Joint.AngularLimitX__enabled = false;
 
