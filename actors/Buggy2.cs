@@ -12,6 +12,8 @@ public class Buggy2 : Spatial
     public bool HasCargo = false;
     public Spatial Destination = null;
 
+    public float PitTime;
+
     public override void _Ready()
     {
         //foreach (var it in GetTree().CurrentScene.FindChildrenByType<StaticBody>()) it.
@@ -135,6 +137,15 @@ public class Buggy2 : Spatial
         if (body.GlobalTranslation.x > 0 && body.GlobalTranslation.z > 0 && body.GlobalTranslation.y < -5)
         {
             GD.Print("IN THE PIT!");
+            PitTime += delta;
+            if (PitTime > 2)
+            {
+
+            }
+        }
+        else
+        {
+
         }
     }
 }
