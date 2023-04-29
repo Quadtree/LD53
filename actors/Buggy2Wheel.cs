@@ -21,10 +21,10 @@ public class Buggy2Wheel : RigidBody
 
         Joint.AngularLimitX__enabled = false;
 
-        Joint.Transform = Transform;
 
-        // Joint.LinearLimitY__lowerDistance = 0;
-        // Joint.LinearLimitY__upperDistance = 0.5f;
+
+        Joint.LinearLimitY__lowerDistance = 0;
+        Joint.LinearLimitY__upperDistance = 0.5f;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,6 +38,8 @@ public class Buggy2Wheel : RigidBody
     public override void _PhysicsProcess(float delta)
     {
         base._PhysicsProcess(delta);
+
+        if (Joint != null) Joint.Transform = Transform;
 
         var yRotation = this.GetParent().FindChildByName<Spatial>("Buggy2Body").GlobalRotation.y;
         var ourTransform = new Transform(new Quat(new Vector3(0, yRotation, 0)), new Vector3(0, 0, 0));
