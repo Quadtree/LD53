@@ -72,7 +72,7 @@ public class InGameUI : Control
         {
             if (@event.IsActionPressed("cheat_little_time_left"))
             {
-                
+                TimeLeft = 3;
             }
         }
     }
