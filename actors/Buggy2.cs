@@ -131,8 +131,7 @@ public class Buggy2 : Spatial
 
             if (RightingForce > 800)
             {
-                body.GlobalRotation = new Vector3(0, 0, 0);
-                body.AngularVelocity = new Vector3(0, 0, 0);
+                SetFixedPosition(body.GlobalTranslation + new Vector3(0, 10, 0));
             }
         }
         else
