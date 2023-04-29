@@ -44,7 +44,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.43001, 4.52032, 4.5727 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128.671, 20.0213, 91.4909 )
 
 [node name="MoonBase2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0218, -0.739648, 4.64976 )
+transform = Transform( 0.938698, 0, 0.344741, 0, 1, 0, -0.344741, 0, 0.938698, 8.0218, -0.739648, 4.64976 )
 
 [node name="MoonBase3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -147.862, 1.44552, 160.021 )
