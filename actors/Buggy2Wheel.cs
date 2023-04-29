@@ -22,6 +22,9 @@ public class Buggy2Wheel : RigidBody
         Joint.AngularLimitX__enabled = false;
 
         Joint.Transform = Transform;
+
+        Joint.LinearLimitY__lowerDistance = 0;
+        Joint.LinearLimitY__upperDistance = 2;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
