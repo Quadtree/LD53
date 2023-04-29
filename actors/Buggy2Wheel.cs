@@ -82,13 +82,13 @@ public class Buggy2Wheel : RigidBody
 
     void BodyEntered(PhysicsBody other)
     {
-        GD.Print($"BodyEntered({other})");
+        //GD.Print($"BodyEntered({other})");
         InContactWith.Add(other);
     }
 
     void BodyExited(PhysicsBody other)
     {
-        GD.Print($"BodyExited({other})");
+        //GD.Print($"BodyExited({other})");
         InContactWith.Remove(other);
     }
 
