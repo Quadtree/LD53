@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actors/Buggy2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/InGameUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/MoonBase.tscn" type="PackedScene" id=3]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -38,3 +39,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 107.884, 4.52032, 9.03048 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InGameUI" parent="CanvasLayer" instance=ExtResource( 2 )]
+
+[node name="MoonBase" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71.2332, 0, 104.473 )
+
+[node name="MoonBase2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3508, -1.90735e-06, -23.8919 )
