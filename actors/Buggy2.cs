@@ -116,7 +116,9 @@ public class Buggy2 : Spatial
         if (body.GlobalTransform.basis.y.y < 0)
         {
             GD.Print("ROLLOVER ACCIDENT!");
-            body.AddTorque(body.AngularVelocity.Normalized() * RightingForce);
+            var spin = body.AngularVelocity.Normalized();
+            spin.y = 0;
+            body.AddTorque(spin * RightingForce);
             RightingForce += 1f;
         }
         else
