@@ -13,6 +13,8 @@ public class Buggy2Wheel : RigidBody
     public override void _Ready()
     {
         CallDeferred(nameof(SetupJoints));
+
+        PrevLinearVel = LinearVelocity;
     }
 
     void SetupJoints()
@@ -52,6 +54,8 @@ public class Buggy2Wheel : RigidBody
 
     public float MotorPower;
 
+    public Vector3 PrevLinearVel;
+
     public override void _PhysicsProcess(float delta)
     {
         base._PhysicsProcess(delta);
@@ -78,6 +82,9 @@ public class Buggy2Wheel : RigidBody
         DebugInfo = $"yRotation={yRotation}\n" +
         $"localSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\n" +
         $"Velocity={LinearVelocity}\nInContactWith={InContactWith.Count}\nTraction={Traction}";
+
+        if ((PrevLinearVel - LinearVelocity).Length() > 5f) Util.SpawnOneShotSound($"res://sounds/collision{Util.RandInt(0, 3)}.wav", this, GlobalTranslation);
+        PrevLinearVel = LinearVelocity;
     }
 
     void BodyEntered(PhysicsBody other)
@@ -85,7 +92,7 @@ public class Buggy2Wheel : RigidBody
         //GD.Print($"BodyEntered({other})");
         InContactWith.Add(other);
 
-        Util.SpawnOneShotSound("res://sounds/collision0.wav", this, GlobalTranslation);
+
     }
 
     void BodyExited(PhysicsBody other)
