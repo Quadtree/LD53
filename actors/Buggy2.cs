@@ -1,9 +1,13 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 
 public class Buggy2 : Spatial
 {
     float EnginePower = 7f;
+
+    List<Node> LeftWheels;
+    List<Node> RightWheels;
 
     public override void _Ready()
     {
@@ -44,11 +48,34 @@ public class Buggy2 : Spatial
             rightWheelPower = -1;
         }
 
+        if (LeftWheels == null)
+        {
+            foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
+            {
+                if (it.Joint == null) continue;
+
+                if (LeftWheels == null)
+                {
+                    LeftWheels = new List<Node>();
+                    RightWheels = new List<Node>();
+                }
+
+                if (it.Transform.origin.x < 0)
+                {
+                    LeftWheels.Add(it);
+                }
+                else
+                {
+                    RightWheels.Add(it);
+                }
+            }
+        }
+
         foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
         {
             if (it.Joint == null) continue;
             //GD.Print(it.Transform.origin.x);
-            if (it.Transform.origin.x < 0)
+            if (LeftWheels.Contains(it))
             {
                 it.AngularVelocity = new Vector3(leftWheelPower * -EnginePower, 0, 0);
             }
