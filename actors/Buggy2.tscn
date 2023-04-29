@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://actors/Buggy2Wheel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/Buggy2.cs" type="Script" id=2]
 [ext_resource path="res://meshes/buggy2_chassis.glb" type="PackedScene" id=3]
 [ext_resource path="res://meshes/wedge.glb" type="PackedScene" id=4]
+[ext_resource path="res://sounds/engine.wav" type="AudioStream" id=5]
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 1, 0.5, 1.5 )
@@ -75,6 +76,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11906 )
 
 [node name="Cube" parent="Buggy2Body/OffscreenAim/OffscreenAim2/OffscreenAim3" index="0"]
 material/0 = SubResource( 3 )
+
+[node name="EngineAudio" type="AudioStreamPlayer3D" parent="Buggy2Body"]
+stream = ExtResource( 5 )
 
 [node name="LeftFrontWheel" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44708, -1.32456, -2.16822 )
