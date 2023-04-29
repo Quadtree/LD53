@@ -46,9 +46,21 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 transform = Transform( 0.649535, 0, 0, 0, 0.649535, 0, 0, 0, 0.649535, 0, 0, -1.72794 )
 
 [node name="OffscreenAim" parent="Buggy2Body" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53459, 0 )
+transform = Transform( 0.29327, 0, 0, 0, 0.29327, 0, 0, 0, 0.29327, 0, 1.15979, 0 )
 
 [node name="Cube" parent="Buggy2Body/OffscreenAim" index="0"]
+material/0 = SubResource( 3 )
+
+[node name="OffscreenAim2" parent="Buggy2Body/OffscreenAim" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.10769 )
+
+[node name="Cube" parent="Buggy2Body/OffscreenAim/OffscreenAim2" index="0"]
+material/0 = SubResource( 3 )
+
+[node name="OffscreenAim3" parent="Buggy2Body/OffscreenAim/OffscreenAim2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11906 )
+
+[node name="Cube" parent="Buggy2Body/OffscreenAim/OffscreenAim2/OffscreenAim3" index="0"]
 material/0 = SubResource( 3 )
 
 [node name="LeftFrontWheel" parent="." instance=ExtResource( 1 )]
@@ -64,3 +76,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30334, -1.32456, -2.16822 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30334, -1.32456, 2.17545 )
 
 [editable path="Buggy2Body/OffscreenAim"]
+[editable path="Buggy2Body/OffscreenAim/OffscreenAim2"]
+[editable path="Buggy2Body/OffscreenAim/OffscreenAim2/OffscreenAim3"]
