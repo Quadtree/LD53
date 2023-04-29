@@ -1,8 +1,4 @@
 # TODO
-- Sound: Bumping the ground
-- Sound: Engine noise
-- Sound: Arrival SFX
-- Find the cause of slideshow mode
 - Triplanar mapping on terrain
 - Music
 
@@ -16,3 +12,7 @@
 - UI font and such
 - Title screen
 - Send screen
+- Sound: Bumping the ground
+- Sound: Engine noise
+- Sound: Arrival SFX
+- Find the cause of slideshow mode
