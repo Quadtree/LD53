@@ -15,20 +15,30 @@ public class RockField : Spatial
     [Export]
     string RockTypeOverride;
 
+    [Export]
+    int RandomSeed;
+
     public override void _Ready()
     {
         CallDeferred(nameof(Setup));
     }
 
+    public static float RandF(Random rand, float min, float max)
+    {
+        return (float)rand.NextDouble() * (max - min) + min;
+    }
+
     void Setup()
     {
+        var rand = new Random(RandomSeed);
+
         for (var i = 0; i < NumRocks; ++i)
         {
             var rock = GD.Load<PackedScene>(RockTypeOverride?.Length > 0 ? RockTypeOverride : $"res://actors/rocks/Rock{Util.RandInt(1, 5)}.tscn").Instance<Spatial>();
 
             AddChild(rock);
 
-            var rockStart = GlobalTranslation + new Vector3(Util.RandF(-FieldSize, FieldSize), 10, Util.RandF(-FieldSize, FieldSize));
+            var rockStart = GlobalTranslation + new Vector3(RandF(rand, -FieldSize, FieldSize), 10, RandF(rand, -FieldSize, FieldSize));
 
             var res = GetWorld().DirectSpaceState.IntersectRay(
                 rockStart,
@@ -38,7 +48,7 @@ public class RockField : Spatial
             if (!res.Contains("position")) continue;
 
             rock.GlobalTranslation = (Vector3)res["position"];
-            rock.GlobalRotation = new Vector3(Util.RandF(-4, 4), Util.RandF(-4, 4), Util.RandF(-4, 4));
+            rock.GlobalRotation = new Vector3(RandF(rand, -4, 4), RandF(rand, -4, 4), RandF(rand, -4, 4));
 
             if (rock is RigidBody)
             {
