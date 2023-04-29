@@ -28,7 +28,7 @@ public class MoonBase : Spatial
             }
             else if (pc.Destination == this)
             {
-                GetTree().CurrentScene.FindChildByType<InGameUI>().Score += 10;
+                GetTree().CurrentScene.FindChildByType<InGameUI>().Score += 1;
                 pc.HasCargo = false;
             }
         }
