@@ -1,5 +1,4 @@
 # TODO
-- Triplanar mapping on terrain
 - Music
 
 # DONE
@@ -16,3 +15,4 @@
 - Sound: Engine noise
 - Sound: Arrival SFX
 - Find the cause of slideshow mode
+- Triplanar mapping on terrain
