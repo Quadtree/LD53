@@ -3,6 +3,7 @@
 - Sound: Bumping the ground
 - Sound: Engine noise
 - Sound: Arrival SFX
+- Triplanar mapping on terrain
 - Music
 
 # DONE
