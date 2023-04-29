@@ -43,7 +43,7 @@ public class Buggy2Wheel : RigidBody
 
         var localSpaceSpeed = ourTransform.Xform(LinearVelocity);
 
-        DebugInfo = $"localSpaceSpeed={localSpaceSpeed}\nTransform.basis.z={Transform.basis.z}";
+        DebugInfo = $"localSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},##,{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}";
     }
 
     public string DebugInfo;
