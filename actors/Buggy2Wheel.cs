@@ -29,4 +29,14 @@ public class Buggy2Wheel : RigidBody
     //  {
     //
     //  }
+
+    public override void _PhysicsProcess(float delta)
+    {
+        base._PhysicsProcess(delta);
+
+        foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
+        {
+
+        }
+    }
 }
