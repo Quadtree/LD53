@@ -22,6 +22,7 @@ uv1_scale = Vector3( 6, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=4]
 metallic = 0.5
+roughness = 0.5
 
 [sub_resource type="CylinderMesh" id=3]
 material = SubResource( 4 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://actors/Buggy2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/InGameUI.tscn" type="PackedScene" id=2]
@@ -20,6 +20,16 @@ panorama = ExtResource( 10 )
 [sub_resource type="Environment" id=10]
 background_mode = 2
 background_sky = SubResource( 12 )
+
+[sub_resource type="GIProbeData" id=13]
+bounds = AABB( -200, -25, -200, 400, 50, 400 )
+cell_size = 3.125
+to_cell_xform = Transform( 0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 64, 8, 64 )
+dynamic_data = PoolIntArray( 0, 8, 128, 16, 128, 1, 0, 0, 0, 501, 0, 0, 7, 0, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 4
+bias = 1.5
+normal_bias = 0.0
+propagation = 0.7
 
 [node name="Spatial" type="Spatial"]
 
@@ -91,5 +101,13 @@ RockTypeOverride = "res://actors/rocks/Boulder.tscn"
 
 [node name="Destination" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -69.8271, 2.41489, -56.7407 )
+
+[node name="GIProbe" type="GIProbe" parent="."]
+extents = Vector3( 200, 25, 200 )
+data = SubResource( 13 )
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+extents = Vector3( 200, 30, 200 )
+enable_shadows = true
 
 [editable path="heightmap"]
