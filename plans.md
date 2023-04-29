@@ -2,6 +2,7 @@
 - Sound: Bumping the ground
 - Sound: Engine noise
 - Sound: Arrival SFX
+- Find the cause of slideshow mode
 - Triplanar mapping on terrain
 - Music
 
