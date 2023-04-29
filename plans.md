@@ -1,5 +1,10 @@
 # TODO
-- Sound
+- Bridge materials
+- UI font and such
+- Title screen
+- Sound: Bumping the ground
+- Sound: Engine noise
+- Sound: Arrival SFX
 - Music
 
 # DONE
