@@ -40,6 +40,8 @@ public class Buggy2Wheel : RigidBody
         var ourTransform = Transform;
         ourTransform.origin = new Godot.Vector3(0, 0, 0);
 
+        var yRotation = GlobalRotation.y;
+
         var localSpaceSpeed = ourTransform.Xform(LinearVelocity);
 
         var counterSlideForce = new Vector3(-localSpaceSpeed.x, 0, 0) * 4;
@@ -48,7 +50,7 @@ public class Buggy2Wheel : RigidBody
 
         //AddForce(counterSlideForce, new Vector3(0, 0, 0));
 
-        DebugInfo = $"localSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},##,{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\ncounterSlideForce={counterSlideForce}";
+        DebugInfo = $"yRotation={yRotation}\nlocalSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},##,{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\ncounterSlideForce={counterSlideForce}";
     }
 
     public string DebugInfo;
