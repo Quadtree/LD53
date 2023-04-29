@@ -23,6 +23,8 @@ public class Buggy2 : Spatial
     //
     //  }
 
+    float RightingForce = 10;
+
     public override void _PhysicsProcess(float delta)
     {
         base._PhysicsProcess(delta);
@@ -114,7 +116,12 @@ public class Buggy2 : Spatial
         if (body.GlobalTransform.basis.y.y < 0)
         {
             GD.Print("ROLLOVER ACCIDENT!");
-            body.AddTorque(new Vector3(0, 10, 0));
+            body.AddTorque(new Vector3(RightingForce, 0, 0));
+            RightingForce += 0.5f;
+        }
+        else
+        {
+            RightingForce = 10;
         }
     }
 }
