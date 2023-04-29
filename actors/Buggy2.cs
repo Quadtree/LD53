@@ -203,6 +203,12 @@ public class Buggy2 : Spatial
                 it.AngularDamp = 0;
             }
         }
+
+        var destLoc = GetTree().CurrentScene.FindChildByType<Destination>();
+        if (Destination != null)
+        {
+            this.FindChildByName<Spatial>("OffscreenAim").LookAt(destLoc.GlobalTranslation, Vector3.Up);
+        }
     }
 
     void SetFixedPosition(Vector3 pos)
