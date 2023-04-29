@@ -25,7 +25,7 @@ public class Buggy2 : Spatial
 
         foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
         {
-            it.AngularVelocity = new Vector3(0.5f, 0, 0);
+            it.AngularVelocity = new Vector3(-0.5f, 0, 0);
         }
     }
 }
