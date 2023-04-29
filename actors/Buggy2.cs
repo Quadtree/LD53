@@ -222,6 +222,10 @@ public class Buggy2 : Spatial
             // var upx = GetViewport().GetCamera().UnprojectPosition(destLoc.GlobalTranslation);
             // GD.Print(upx);
         }
+        else
+        {
+            this.FindChildByName<Spatial>("OffscreenAim").Visible = false;
+        }
     }
 
     void SetFixedPosition(Vector3 pos)
