@@ -80,6 +80,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8205, 11.0475, -60.6287 )
 script = ExtResource( 8 )
 NumRocks = 6
 FieldSize = 20.0
-RockScaling = 5.0
+RockTypeOverride = "res://actors/rocks/Boulder.tscn"
 
 [editable path="heightmap"]
