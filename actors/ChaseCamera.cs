@@ -18,8 +18,10 @@ public class ChaseCamera : Camera
     {
         var trg = GetTree().CurrentScene.FindChildByName<Spatial>("CameraTarget");
 
-        GlobalRotation = trg.GlobalRotation;
+        //GlobalRotation = trg.GlobalRotation;
 
         GlobalTranslation = (GlobalTranslation * 0.95f + trg.GlobalTranslation * 0.05f);
+
+        LookAt(GetTree().CurrentScene.FindChildByName<Spatial>("Buggy2Body").GlobalTranslation, Vector3.Up);
     }
 }
