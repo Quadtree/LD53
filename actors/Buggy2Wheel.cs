@@ -84,6 +84,8 @@ public class Buggy2Wheel : RigidBody
     {
         //GD.Print($"BodyEntered({other})");
         InContactWith.Add(other);
+
+        Util.SpawnOneShotSound("res://sounds/collision0.wav", this, GlobalTranslation);
     }
 
     void BodyExited(PhysicsBody other)
