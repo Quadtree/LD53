@@ -32,20 +32,20 @@ public class Buggy2 : Spatial
 
         if (Input.IsActionPressed("turn_left"))
         {
-            leftWheelPower = -1;
-            rightWheelPower = 1;
+            leftWheelPower += -1;
+            rightWheelPower += 1;
         }
-        else if (Input.IsActionPressed("turn_right"))
+        if (Input.IsActionPressed("turn_right"))
         {
-            leftWheelPower = 1;
-            rightWheelPower = -1;
+            leftWheelPower += 1;
+            rightWheelPower += -1;
         }
-        else if (Input.IsActionPressed("accelerate"))
+        if (Input.IsActionPressed("accelerate"))
         {
-            leftWheelPower = 1;
-            rightWheelPower = 1;
+            leftWheelPower += 1;
+            rightWheelPower += 1;
         }
-        else if (Input.IsActionPressed("reverse"))
+        if (Input.IsActionPressed("reverse"))
         {
             leftWheelPower = -1;
             rightWheelPower = -1;

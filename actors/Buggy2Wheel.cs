@@ -42,7 +42,7 @@ public class Buggy2Wheel : RigidBody
 
         var localSpaceSpeed = ourTransform.XformInv(LinearVelocity);
 
-        localSpaceSpeed = new Vector3(localSpaceSpeed.x * 0.93f, localSpaceSpeed.y * 0.93f, localSpaceSpeed.z);
+        localSpaceSpeed = new Vector3(localSpaceSpeed.x * 0.93f, localSpaceSpeed.y, localSpaceSpeed.z);
 
         var modifiedWorldSpaceSpeed = ourTransform.Xform(localSpaceSpeed);
 
