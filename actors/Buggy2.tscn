@@ -23,8 +23,9 @@ skeleton = NodePath("../CollisionShape")
 
 [node name="Camera" type="Camera" parent="Buggy2Body"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62547, 6.89929 )
-current = true
 far = 1000.0
+
+[node name="CameraTarget" type="Spatial" parent="Buggy2Body/Camera"]
 
 [node name="WheelRotator" type="Spatial" parent="Buggy2Body"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
