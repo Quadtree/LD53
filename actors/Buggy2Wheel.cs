@@ -48,6 +48,8 @@ public class Buggy2Wheel : RigidBody
 
         AddForce(counterSlideForce, new Vector3(0, 0, 0));
 
+        LinearDamp = 0.5f;
+
         DebugInfo = $"yRotation={yRotation}\nlocalSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},##,{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\nWSCSF={worldSpaceCounterSlideForce}\nVelocity={LinearVelocity}";
     }
 
