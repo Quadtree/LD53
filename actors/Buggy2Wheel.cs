@@ -37,7 +37,7 @@ public class Buggy2Wheel : RigidBody
     {
         base._PhysicsProcess(delta);
 
-        var localSpaceSpeed = GlobalTransform.XformInv(LinearVelocity);
+        var localSpaceSpeed = Transform.XformInv(LinearVelocity);
 
         DebugInfo = $"localSpaceSpeed={localSpaceSpeed}";
     }
