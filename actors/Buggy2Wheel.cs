@@ -28,10 +28,15 @@ public class Buggy2Wheel : RigidBody
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //
-    //  }
+    public override void _Process(float delta)
+    {
+        var bar = this.FindChildByName<Spatial>("Bar");
+
+        var body = this.GetParent().FindChildByName<Spatial>("Buggy2Body");
+
+        bar.GlobalTranslation = (body.GlobalTranslation + GlobalTranslation) / 2;
+        bar.LookAt(body.GlobalTranslation, Vector3.Up);
+    }
 
     public float MotorPower;
 
@@ -58,6 +63,8 @@ public class Buggy2Wheel : RigidBody
         $"localSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\n" +
         $"Velocity={LinearVelocity}";
     }
+
+
 
     public string DebugInfo;
 }
