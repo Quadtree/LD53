@@ -1,5 +1,4 @@
 # TODO
-- Send screen
 - Sound: Bumping the ground
 - Sound: Engine noise
 - Sound: Arrival SFX
@@ -15,3 +14,4 @@
 - Bridge materials
 - UI font and such
 - Title screen
+- Send screen
