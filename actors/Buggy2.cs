@@ -106,5 +106,12 @@ public class Buggy2 : Spatial
         }
 
         //GD.Print(this.FindChildByName<RigidBody>("Buggy2Body").LinearVelocity.Length());
+
+        GD.Print(this.FindChildByName<Spatial>("Buggy2Body").GlobalTransform.basis.y.y);
+
+        if (this.FindChildByName<Spatial>("Buggy2Body").GlobalTransform.basis.y.y < 0)
+        {
+            GD.Print("ROLLOVER ACCIDENT!");
+        }
     }
 }
