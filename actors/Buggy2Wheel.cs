@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 
 public class Buggy2Wheel : RigidBody
 {
     public Generic6DOFJoint Joint;
+
+    List<PhysicsBody> InContactWith = new List<PhysicsBody>();
 
     public override void _Ready()
     {
@@ -25,6 +28,11 @@ public class Buggy2Wheel : RigidBody
 
         Joint.LinearLimitY__lowerDistance = 0;
         Joint.LinearLimitY__upperDistance = 0.5f;
+
+        this.Connect("body_entered", this, nameof(BodyEntered));
+        this.Connect("body_exited", this, nameof(BodyExited));
+
+        ContactsReported = 100;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,6 +44,8 @@ public class Buggy2Wheel : RigidBody
 
         bar.GlobalTranslation = (body.GlobalTranslation + GlobalTranslation) / 2;
         bar.LookAt(body.GlobalTranslation, Vector3.Up);
+
+
     }
 
     public float MotorPower;
@@ -55,13 +65,25 @@ public class Buggy2Wheel : RigidBody
 
         var modifiedWorldSpaceSpeed = ourTransform.Xform(localSpaceSpeed);
 
-        LinearVelocity = modifiedWorldSpaceSpeed;
+        if (InContactWith.Count > 0) LinearVelocity = modifiedWorldSpaceSpeed;
 
         //LinearDamp = Mathf.Abs(localSpaceSpeed.x) / (Mathf.Abs(localSpaceSpeed.z) + 0.1f) * 3;
 
         DebugInfo = $"yRotation={yRotation}\n" +
         $"localSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\n" +
-        $"Velocity={LinearVelocity}";
+        $"Velocity={LinearVelocity}\nInContactWith={InContactWith.Count}";
+    }
+
+    void BodyEntered(PhysicsBody other)
+    {
+        GD.Print($"BodyEntered({other})");
+        InContactWith.Add(other);
+    }
+
+    void BodyExited(PhysicsBody other)
+    {
+        GD.Print($"BodyExited({other})");
+        InContactWith.Remove(other);
     }
 
 

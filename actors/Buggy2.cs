@@ -14,7 +14,7 @@ public class Buggy2 : Spatial
 
     public override void _Ready()
     {
-
+        //foreach (var it in GetTree().CurrentScene.FindChildrenByType<StaticBody>()) it.
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -105,6 +105,6 @@ public class Buggy2 : Spatial
             // }
         }
 
-        GD.Print(this.FindChildByName<RigidBody>("Buggy2Body").LinearVelocity.Length());
+        //GD.Print(this.FindChildByName<RigidBody>("Buggy2Body").LinearVelocity.Length());
     }
 }
