@@ -35,6 +35,8 @@ public class RockField : Spatial
                 rockStart + new Vector3(0, -50, 0)
             );
 
+            if (!res.Contains("position")) continue;
+
             rock.GlobalTranslation = (Vector3)res["position"];
             rock.GlobalRotation = new Vector3(Util.RandF(-4, 4), Util.RandF(-4, 4), Util.RandF(-4, 4));
 

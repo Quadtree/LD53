@@ -226,6 +226,11 @@ public class Buggy2 : Spatial
         {
             this.FindChildByName<Spatial>("OffscreenAim").Visible = false;
         }
+
+        if (Input.IsActionPressed("restart_game"))
+        {
+            GetTree().ChangeScene("res://maps/Moon1.tscn");
+        }
     }
 
     void SetFixedPosition(Vector3 pos)
