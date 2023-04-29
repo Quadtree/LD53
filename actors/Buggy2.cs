@@ -173,34 +173,37 @@ public class Buggy2 : Spatial
             PitTime = 0;
         }
 
+        var MAX_DAMP = 100f;
+        var DEFAULT_DAMP = 0.2f;
+
         if (FixedPositionTime > 0)
         {
             body.GlobalTranslation = FixedPosition;
             body.GlobalRotation = new Vector3(0, 0, 0);
             //body.LinearVelocity = new Vector3(0, 0, 0);
             //body.AngularVelocity = new Vector3(0, 0, 0);
-            body.LinearDamp = 100f;
-            body.AngularDamp = 100f;
+            body.LinearDamp = MAX_DAMP;
+            body.AngularDamp = MAX_DAMP;
 
             foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
             {
                 //it.LinearVelocity = new Vector3(0, 0, 0);
                 //it.AngularVelocity = new Vector3(0, 0, 0);
-                it.LinearDamp = 100f;
-                it.AngularDamp = 100f;
+                it.LinearDamp = MAX_DAMP;
+                it.AngularDamp = MAX_DAMP;
             }
 
             FixedPositionTime -= delta;
         }
         else
         {
-            body.LinearDamp = 0;
-            body.AngularDamp = 0;
+            body.LinearDamp = DEFAULT_DAMP;
+            body.AngularDamp = DEFAULT_DAMP;
 
             foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
             {
-                it.LinearDamp = 0;
-                it.AngularDamp = 0;
+                it.LinearDamp = DEFAULT_DAMP;
+                it.AngularDamp = DEFAULT_DAMP;
             }
         }
 
