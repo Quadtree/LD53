@@ -24,17 +24,18 @@ public class Buggy : VehicleBody
         base._PhysicsProcess(delta);
 
         EngineForce = 0;
+        Steering = 0;
 
         if (Input.IsActionPressed("turn_left"))
         {
-
+            Steering = 10;
         }
         else if (Input.IsActionPressed("turn_right"))
         {
-            // leftWheelPower = 1;
-            // rightWheelPower = -1;
+            Steering = -10;
         }
-        else if (Input.IsActionPressed("accelerate"))
+
+        if (Input.IsActionPressed("accelerate"))
         {
             EngineForce = -100;
         }
