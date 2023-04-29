@@ -28,6 +28,7 @@ public class RockField : Spatial
 
             AddChild(rock);
             rock.GlobalTranslation = GlobalTranslation + new Vector3(Util.RandF(-FieldSize, FieldSize), 3, Util.RandF(-FieldSize, FieldSize));
+            rock.GlobalRotation = new Vector3(Util.RandF(-4, 4), Util.RandF(-4, 4), Util.RandF(-4, 4));
             //foreach (var it in rock.FindChildrenByType<Spatial>()) new Vector3(RockScaling, RockScaling, RockScaling);
         }
     }
