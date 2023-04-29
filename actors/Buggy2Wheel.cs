@@ -37,12 +37,12 @@ public class Buggy2Wheel : RigidBody
     {
         base._PhysicsProcess(delta);
 
-        var yRotation = GlobalRotation.y;
+        var yRotation = this.GetParent().FindChildByName<Spatial>("Buggy2Body").GlobalRotation.y;
         var ourTransform = new Transform(new Quat(new Vector3(0, yRotation, 0)), new Vector3(0, 0, 0));
 
         var localSpaceSpeed = ourTransform.XformInv(LinearVelocity);
 
-        var counterSlideForce = new Vector3(-localSpaceSpeed.x, 0, 0) * 4;
+        var counterSlideForce = new Vector3(localSpaceSpeed.x, 0, 0) * 4;
 
         var worldSpaceCounterSlideForce = ourTransform.Xform(counterSlideForce);
 
