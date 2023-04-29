@@ -71,8 +71,7 @@ public class Buggy2 : Spatial
             }
         }
 
-        var baseRotation = this.FindChildByName<Spatial>("WheelRotator").GlobalRotation;
-        GD.Print(baseRotation);
+        var baseRotation = new Vector3(1, 0, 0);
 
         foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
         {
