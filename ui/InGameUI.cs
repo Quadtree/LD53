@@ -6,7 +6,7 @@ using Godot.Collections;
 public class InGameUI : Control
 {
     [Export]
-    public int Minutes;
+    public int Minutes = 3;
 
     public float TimeLeft;
     public int Score = 0;
