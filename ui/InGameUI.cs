@@ -5,7 +5,10 @@ using Godot.Collections;
 
 public class InGameUI : Control
 {
-    public float TimeLeft = 300;
+    [Export]
+    public int Minutes;
+
+    public float TimeLeft;
     public int Score = 0;
     public bool EndScreenShown = false;
 
@@ -16,6 +19,8 @@ public class InGameUI : Control
 
     public override void _Ready()
     {
+        TimeLeft = Minutes * 60;
+
         CallDeferred(nameof(Setup));
     }
 

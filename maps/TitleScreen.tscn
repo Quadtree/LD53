@@ -33,7 +33,7 @@ anchor_top = 0.396
 anchor_right = 1.0
 anchor_bottom = 0.819
 custom_fonts/font = ExtResource( 2 )
-text = "You have 5 minutes to deliver packages between bases on a moon!
+text = "You have 3 minutes to deliver packages between bases on a moon!
 
 Controls:
 WASD/Arrow Keys - Move

@@ -25,7 +25,7 @@ anchor_top = 0.396
 anchor_right = 1.0
 anchor_bottom = 0.819
 custom_fonts/font = ExtResource( 1 )
-text = "You managed to deliver # packages in 5 minutes!
+text = "You managed to deliver # packages in 3 minutes!
 
 Press any key to continue, or press Ctrl+R to restart"
 align = 1
