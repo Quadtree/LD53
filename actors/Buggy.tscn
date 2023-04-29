@@ -1,40 +1,38 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/BuggyWheel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/Buggy.cs" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 3, 2, 3 )
+extents = Vector3( 1.5, 0.5, 1.5 )
 
 [sub_resource type="CubeMesh" id=2]
+size = Vector3( 3, 1, 3 )
 
-[node name="VehicleBody" type="VehicleBody"]
+[node name="Buggy" type="VehicleBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00259995, 0 )
 mass = 10.0
 can_sleep = false
-engine_force = 1000.0
-steering = -180.0
+script = ExtResource( 2 )
 
 [node name="front_right_wheel" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9644, -1.95386, 2.56598 )
-engine_force = 1000.0
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.9644, 0.386887, 2.56598 )
 
 [node name="front_left_wheel" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05271, -1.95386, 2.56598 )
-engine_force = 1000.0
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.05271, 0.386887, 2.56598 )
 
 [node name="rear_right_wheel" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9644, -1.95386, -2.16506 )
-engine_force = 1000.0
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.9644, 0.386887, -2.16506 )
 
 [node name="rear_left_wheel" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282, -1.95386, -1.69886 )
-engine_force = 1000.0
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.0282, 0.386887, -1.69886 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.741988, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125697, 0.594729 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125697, 0.594729 )
 mesh = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
