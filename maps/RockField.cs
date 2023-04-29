@@ -27,8 +27,22 @@ public class RockField : Spatial
             var rock = GD.Load<PackedScene>(RockTypeOverride?.Length > 0 ? RockTypeOverride : $"res://actors/rocks/Rock{Util.RandInt(1, 5)}.tscn").Instance<Spatial>();
 
             AddChild(rock);
-            rock.GlobalTranslation = GlobalTranslation + new Vector3(Util.RandF(-FieldSize, FieldSize), 3, Util.RandF(-FieldSize, FieldSize));
+
+            var rockStart = GlobalTranslation + new Vector3(Util.RandF(-FieldSize, FieldSize), 10, Util.RandF(-FieldSize, FieldSize));
+
+            var res = GetWorld().DirectSpaceState.IntersectRay(
+                rockStart,
+                rockStart + new Vector3(0, -50, 0)
+            );
+
+            rock.GlobalTranslation = (Vector3)res["position"];
             rock.GlobalRotation = new Vector3(Util.RandF(-4, 4), Util.RandF(-4, 4), Util.RandF(-4, 4));
+
+            if (rock is RigidBody)
+            {
+                ((RigidBody)rock).Sleeping = true;
+            }
+
             //foreach (var it in rock.FindChildrenByType<Spatial>()) new Vector3(RockScaling, RockScaling, RockScaling);
         }
     }
