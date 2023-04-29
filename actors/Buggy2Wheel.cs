@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Godot;
 
 public class Buggy2Wheel : RigidBody
@@ -37,9 +38,12 @@ public class Buggy2Wheel : RigidBody
     {
         base._PhysicsProcess(delta);
 
-        var localSpaceSpeed = Transform.XformInv(LinearVelocity);
+        var ourTransform = Transform;
+        ourTransform.origin = new Godot.Vector3(0, 0, 0);
 
-        DebugInfo = $"localSpaceSpeed={localSpaceSpeed}";
+        var localSpaceSpeed = ourTransform.Xform(LinearVelocity);
+
+        DebugInfo = $"localSpaceSpeed={localSpaceSpeed}\nTransform.basis.z={Transform.basis.z}";
     }
 
     public string DebugInfo;

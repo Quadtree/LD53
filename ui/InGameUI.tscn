@@ -16,7 +16,7 @@ text = "Time Left: 000
 Score: 000"
 
 [node name="WheelDebug" type="VBoxContainer" parent="."]
-margin_left = 1434.0
+margin_left = 1493.0
 margin_top = 24.0
 margin_right = 1897.0
-margin_bottom = 325.0
+margin_bottom = 589.0
