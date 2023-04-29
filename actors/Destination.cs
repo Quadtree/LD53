@@ -16,6 +16,18 @@ public class Destination : Spatial
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        
+        var pc = GetTree().CurrentScene.FindChildByType<Buggy2>();
+
+        Rotate(Vector3.Up, delta * 2);
+
+        if (pc.Destination != null)
+        {
+            this.GlobalTranslation = pc.Destination.GlobalTranslation;
+            Visible = true;
+        }
+        else
+        {
+            Visible = false;
+        }
     }
 }

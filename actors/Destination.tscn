@@ -15,7 +15,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0
 script = ExtResource( 2 )
 
 [node name="wedge" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105926, -2.01561e-07, 1.82675 )
+transform = Transform( 4.55369, 0, 0, 0, 4.55369, 0, 0, 0, 4.55369, -0.105926, -5.29086e-07, 9.31964 )
 
 [node name="Cube" parent="wedge" index="0"]
 material/0 = SubResource( 1 )
