@@ -8,6 +8,8 @@ public class Buggy2Wheel : RigidBody
 
     List<PhysicsBody> InContactWith = new List<PhysicsBody>();
 
+    float Traction;
+
     public override void _Ready()
     {
         CallDeferred(nameof(SetupJoints));
@@ -65,13 +67,17 @@ public class Buggy2Wheel : RigidBody
 
         var modifiedWorldSpaceSpeed = ourTransform.Xform(localSpaceSpeed);
 
-        if (InContactWith.Count > 0) LinearVelocity = modifiedWorldSpaceSpeed;
+        LinearVelocity = (LinearVelocity * (1 - Traction) + modifiedWorldSpaceSpeed * Traction);
 
         //LinearDamp = Mathf.Abs(localSpaceSpeed.x) / (Mathf.Abs(localSpaceSpeed.z) + 0.1f) * 3;
 
+        var TRACTION_CHANGE_RATE = 0.07f;
+
+        Traction = (InContactWith.Count > 0 ? 1 : 0) * TRACTION_CHANGE_RATE + Traction * (1 - TRACTION_CHANGE_RATE);
+
         DebugInfo = $"yRotation={yRotation}\n" +
         $"localSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\n" +
-        $"Velocity={LinearVelocity}\nInContactWith={InContactWith.Count}";
+        $"Velocity={LinearVelocity}\nInContactWith={InContactWith.Count}\nTraction={Traction}";
     }
 
     void BodyEntered(PhysicsBody other)
