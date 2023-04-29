@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 8, 0.3, 18 )
+
+[sub_resource type="OpenSimplexNoise" id=4]
+
+[sub_resource type="NoiseTexture" id=5]
+seamless = true
+as_normalmap = true
+bump_strength = 50.0
+noise = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0, 0.341176, 0.0470588, 1 )
+normal_enabled = true
+normal_scale = 3.0
+normal_texture = SubResource( 5 )
+uv1_scale = Vector3( 20, 20, 10 )
 
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( -4, 0.15, 9, 4, 0.15, 9, -4, -0.15, 9, 4, 0.15, 9, 4, -0.15, 9, -4, -0.15, 9, 4, 0.15, -9, -4, 0.15, -9, 4, -0.15, -9, -4, 0.15, -9, -4, -0.15, -9, 4, -0.15, -9, 4, 0.15, 9, 4, 0.15, -9, 4, -0.15, 9, 4, 0.15, -9, 4, -0.15, -9, 4, -0.15, 9, -4, 0.15, -9, -4, 0.15, 9, -4, -0.15, -9, -4, 0.15, 9, -4, -0.15, 9, -4, -0.15, -9, 4, 0.15, 9, -4, 0.15, 9, 4, 0.15, -9, -4, 0.15, 9, -4, 0.15, -9, 4, 0.15, -9, -4, -0.15, 9, 4, -0.15, 9, -4, -0.15, -9, 4, -0.15, 9, 4, -0.15, -9, -4, -0.15, -9 )
@@ -10,6 +25,7 @@ data = PoolVector3Array( -4, 0.15, 9, 4, 0.15, 9, -4, -0.15, 9, 4, 0.15, 9, 4, -
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance"]
 

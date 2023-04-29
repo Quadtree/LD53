@@ -80,7 +80,7 @@ shadow_enabled = true
 transform = Transform( 0.272364, 0, -0.962194, 0, 1, 0, 0.962194, 0, 0.272364, 22.2522, -1.80337, 83.9116 )
 
 [node name="Spatial2" parent="." instance=ExtResource( 6 )]
-transform = Transform( -0.990774, 0, -0.135525, 0, 1, 0, 0.135525, 0, -0.990774, 76.2689, -1.80337, 11.9115 )
+transform = Transform( -0.990774, 0, -0.135525, 0, 1, 0, 0.135525, 0, -0.990774, 76.2689, -1.5965, 11.9115 )
 
 [node name="PitSafeSpot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.0765, 1.48193, 58.4239 )
