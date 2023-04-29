@@ -171,6 +171,7 @@ public class Buggy2 : Spatial
         if (FixedPositionTime > 0)
         {
             body.GlobalTranslation = FixedPosition;
+            body.GlobalRotation = new Vector3(0, 0, 0);
             //body.LinearVelocity = new Vector3(0, 0, 0);
             //body.AngularVelocity = new Vector3(0, 0, 0);
             body.LinearDamp = 4;
