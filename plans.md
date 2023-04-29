@@ -1,5 +1,4 @@
 # TODO
-- Title screen
 - Send screen
 - Sound: Bumping the ground
 - Sound: Engine noise
@@ -14,3 +13,4 @@
 - Final buggy graphics
 - Bridge materials
 - UI font and such
+- Title screen
