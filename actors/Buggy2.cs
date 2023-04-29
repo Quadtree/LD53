@@ -154,7 +154,9 @@ public class Buggy2 : Spatial
             PitTime += delta;
             if (PitTime > 2)
             {
-                body.GlobalTranslation = PreviousLocations[5] + new Vector3(0, 25, 0);
+                var outOfPitLocation = PreviousLocations[5] + new Vector3(0, 25, 0);
+                GD.Print($"Jumping out of the pit to {outOfPitLocation}");
+                body.GlobalTranslation = outOfPitLocation;
             }
         }
         else
