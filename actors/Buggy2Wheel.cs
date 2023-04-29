@@ -42,15 +42,17 @@ public class Buggy2Wheel : RigidBody
 
         var localSpaceSpeed = ourTransform.XformInv(LinearVelocity);
 
-        var counterSlideForce = new Vector3(localSpaceSpeed.x, 0, 0);
+        localSpaceSpeed = new Vector3(localSpaceSpeed.x * 0.93f, localSpaceSpeed.y * 0.93f, localSpaceSpeed.z);
 
-        var worldSpaceCounterSlideForce = ourTransform.Xform(counterSlideForce);
+        var modifiedWorldSpaceSpeed = ourTransform.Xform(localSpaceSpeed);
 
-        AddForce(counterSlideForce, new Vector3(0, 0, 0));
+        LinearVelocity = modifiedWorldSpaceSpeed;
 
         //LinearDamp = Mathf.Abs(localSpaceSpeed.x) / (Mathf.Abs(localSpaceSpeed.z) + 0.1f) * 3;
 
-        DebugInfo = $"yRotation={yRotation}\nlocalSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},##,{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\nWSCSF={worldSpaceCounterSlideForce}\nVelocity={LinearVelocity}\nLinearDamp={LinearDamp}";
+        DebugInfo = $"yRotation={yRotation}\n" +
+        $"localSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\n" +
+        $"Velocity={LinearVelocity}";
     }
 
     public string DebugInfo;
