@@ -79,6 +79,7 @@ material/0 = SubResource( 3 )
 
 [node name="EngineAudio" type="AudioStreamPlayer3D" parent="Buggy2Body"]
 stream = ExtResource( 5 )
+unit_db = -10.0
 
 [node name="LeftFrontWheel" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44708, -1.32456, -2.16822 )

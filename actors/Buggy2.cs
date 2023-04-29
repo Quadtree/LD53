@@ -231,6 +231,10 @@ public class Buggy2 : Spatial
         {
             GetTree().ChangeScene("res://maps/Moon1.tscn");
         }
+
+        var shouldPlayEngineAudio = leftWheelPower != 0;
+
+        if (shouldPlayEngineAudio != this.FindChildByName<AudioStreamPlayer3D>("EngineAudio").Playing) this.FindChildByName<AudioStreamPlayer3D>("EngineAudio").Playing = shouldPlayEngineAudio;
     }
 
     void SetFixedPosition(Vector3 pos)
