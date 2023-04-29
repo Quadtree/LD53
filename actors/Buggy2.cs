@@ -4,7 +4,7 @@ using Godot;
 
 public class Buggy2 : Spatial
 {
-    float EnginePower = 20f;
+    float EnginePower = 30f;
 
     List<Node> LeftWheels;
     List<Node> RightWheels;
@@ -99,5 +99,7 @@ public class Buggy2 : Spatial
             //     it.Joint.AngularMotorX__targetVelocity = rightWheelPower * -EnginePower;
             // }
         }
+
+        GD.Print(this.FindChildByName<RigidBody>("Buggy2Body").LinearVelocity.Length());
     }
 }
