@@ -15,6 +15,9 @@ public class Buggy2 : Spatial
     public float PitTime;
     public float PrevLocCharge;
 
+    public Vector3 FixedPosition;
+    public float FixedPositionTime;
+
     public Vector3[] PreviousLocations = new Vector3[8];
 
     public override void _Ready()
@@ -156,12 +159,21 @@ public class Buggy2 : Spatial
             {
                 var outOfPitLocation = PreviousLocations[5] + new Vector3(0, 25, 0);
                 GD.Print($"Jumping out of the pit to {outOfPitLocation}");
-                body.GlobalTranslation = outOfPitLocation;
+                FixedPosition = outOfPitLocation;
+                FixedPositionTime = 2;
             }
         }
         else
         {
             PitTime = 0;
+        }
+
+        if (FixedPositionTime > 0)
+        {
+            body.GlobalTranslation = FixedPosition;
+            body.LinearVelocity = new Vector3(0, 0, 0);
+            body.AngularVelocity = new Vector3(0, 0, 0);
+            FixedPositionTime -= delta;
         }
     }
 }
