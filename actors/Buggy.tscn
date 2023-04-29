@@ -23,9 +23,11 @@ transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.05271, 
 
 [node name="rear_right_wheel" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.9644, 0.386887, -2.16506 )
+use_as_steering = true
 
 [node name="rear_left_wheel" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.0282, 0.386887, -1.69886 )
+use_as_steering = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125697, 0.594729 )
