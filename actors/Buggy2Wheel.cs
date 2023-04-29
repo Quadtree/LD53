@@ -18,6 +18,8 @@ public class Buggy2Wheel : RigidBody
         //Joint.SetNodeA()
         Joint.Nodes__nodeA = "../Buggy2Body";
         Joint.Nodes__nodeB = $"../{Name}";
+
+        Joint.AngularLimitX__enabled = false;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
