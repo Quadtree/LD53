@@ -175,6 +175,13 @@ public class Buggy2 : Spatial
             body.AngularVelocity = new Vector3(0, 0, 0);
             body.LinearDamp = 10000;
             body.AngularDamp = 10000;
+
+            foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
+            {
+                it.LinearVelocity = new Vector3(0, 0, 0);
+                it.AngularVelocity = new Vector3(0, 0, 0);
+            }
+
             FixedPositionTime -= delta;
         }
         else
