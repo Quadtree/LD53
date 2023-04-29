@@ -171,15 +171,17 @@ public class Buggy2 : Spatial
         if (FixedPositionTime > 0)
         {
             body.GlobalTranslation = FixedPosition;
-            body.LinearVelocity = new Vector3(0, 0, 0);
-            body.AngularVelocity = new Vector3(0, 0, 0);
-            body.LinearDamp = 10000;
-            body.AngularDamp = 10000;
+            //body.LinearVelocity = new Vector3(0, 0, 0);
+            //body.AngularVelocity = new Vector3(0, 0, 0);
+            body.LinearDamp = 4;
+            body.AngularDamp = 4;
 
             foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
             {
-                it.LinearVelocity = new Vector3(0, 0, 0);
-                it.AngularVelocity = new Vector3(0, 0, 0);
+                //it.LinearVelocity = new Vector3(0, 0, 0);
+                //it.AngularVelocity = new Vector3(0, 0, 0);
+                it.LinearDamp = 4;
+                it.AngularDamp = 4;
             }
 
             FixedPositionTime -= delta;
