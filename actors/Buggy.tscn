@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[node name="Buggy" type="Spatial"]
+
+[node name="VehicleBody" type="VehicleBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00259995, 0 )
+mass = 10.0
+can_sleep = false
+
+[node name="VehicleWheel" type="VehicleWheel" parent="VehicleBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95035, -0.723784, 2.56372 )
+wheel_radius = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleBody/VehicleWheel"]
+mesh = SubResource( 3 )
+
+[node name="VehicleWheel2" type="VehicleWheel" parent="VehicleBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7772, -0.723784, 2.56372 )
+wheel_radius = 1.0
+
+[node name="MeshInstance2" type="MeshInstance" parent="VehicleBody/VehicleWheel2"]
+mesh = SubResource( 3 )
+skeleton = NodePath("../../VehicleWheel")
+
+[node name="VehicleWheel3" type="VehicleWheel" parent="VehicleBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95035, -0.723784, -1.88999 )
+wheel_radius = 1.0
+
+[node name="MeshInstance3" type="MeshInstance" parent="VehicleBody/VehicleWheel3"]
+mesh = SubResource( 3 )
+skeleton = NodePath("../../VehicleWheel")
+
+[node name="VehicleWheel4" type="VehicleWheel" parent="VehicleBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7772, -0.723784, -1.88999 )
+wheel_radius = 1.0
+
+[node name="MeshInstance4" type="MeshInstance" parent="VehicleBody/VehicleWheel4"]
+mesh = SubResource( 3 )
+skeleton = NodePath("../../VehicleWheel")
+
+[node name="CollisionShape" type="CollisionShape" parent="VehicleBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleBody"]
+mesh = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="VehicleBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5896, 7.9728 )
+current = true
