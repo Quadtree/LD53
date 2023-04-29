@@ -17,18 +17,18 @@ script = ExtResource( 2 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../CollisionShape")
 
-[node name="LeftFrontWheel" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44708, -0.324557, -1.16822 )
-
-[node name="LeftFrontWheel2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44708, -0.324557, 1.17545 )
-
-[node name="LeftFrontWheel3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30334, -0.324557, -1.16822 )
-
-[node name="LeftFrontWheel4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30334, -0.324557, 1.17545 )
-
-[node name="Camera" type="Camera" parent="."]
+[node name="Camera" type="Camera" parent="Buggy2Body"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62547, 6.89929 )
 current = true
+
+[node name="LeftFrontWheel" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44708, -1.32456, -2.16822 )
+
+[node name="LeftFrontWheel2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44708, -1.32456, 2.17545 )
+
+[node name="LeftFrontWheel3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30334, -1.32456, -2.16822 )
+
+[node name="LeftFrontWheel4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30334, -1.32456, 2.17545 )
