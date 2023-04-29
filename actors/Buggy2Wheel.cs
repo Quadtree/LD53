@@ -1,21 +1,23 @@
-using Godot;
 using System;
+using Godot;
 
 public class Buggy2Wheel : RigidBody
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    Generic6DOFJoint Joint;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+        Joint = new Generic6DOFJoint();
+        GetParent().AddChild(Joint);
+        //Joint.Nodes__nodeA = this.GetParent().FindChildByName<RigidBody>("Buggy2Body");
+        //Joint.SetNodeA()
+        Joint.Nodes__nodeA = "../Buggy2Body";
+        Joint.Nodes__nodeB = $"../{Name}";
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
+    //  public override void _Process(float delta)
+    //  {
+    //
+    //  }
 }

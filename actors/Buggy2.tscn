@@ -7,11 +7,11 @@ size = Vector3( 2, 1, 3 )
 
 [node name="Buggy2" type="Spatial"]
 
-[node name="RigidBody" type="RigidBody" parent="."]
+[node name="Buggy2Body" type="RigidBody" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Buggy2Body"]
 
-[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+[node name="MeshInstance" type="MeshInstance" parent="Buggy2Body"]
 mesh = SubResource( 1 )
 skeleton = NodePath("../CollisionShape")
 
