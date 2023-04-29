@@ -21,6 +21,9 @@ skeleton = NodePath("../CollisionShape")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62547, 6.89929 )
 current = true
 
+[node name="WheelRotator" type="Spatial" parent="Buggy2Body"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+
 [node name="LeftFrontWheel" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44708, -1.32456, -2.16822 )
 

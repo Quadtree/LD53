@@ -71,7 +71,7 @@ public class Buggy2 : Spatial
             }
         }
 
-        var baseRotation = this.FindChildByName<Spatial>("Buggy2Body").Rotation;
+        var baseRotation = this.FindChildByName<Spatial>("WheelRotator").Rotation;
 
         foreach (var it in this.FindChildrenByType<Buggy2Wheel>())
         {
