@@ -10,6 +10,8 @@ public class EndOverlay : Control
         base._Ready();
 
         PauseMode = PauseModeEnum.Process;
+
+        this.FindChildByName<Label>("Label2").Text = this.FindChildByName<Label>("Label2").Text.Replace("#", GetParent<InGameUI>().Score.ToString());
     }
 
     public override void _Process(float delta)
