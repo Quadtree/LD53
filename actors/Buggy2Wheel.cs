@@ -13,7 +13,7 @@ public class Buggy2Wheel : RigidBody
     void SetupJoints()
     {
         Joint = new Generic6DOFJoint();
-        GetParent().AddChild(Joint);
+        AddChild(Joint);
         //Joint.Nodes__nodeA = this.GetParent().FindChildByName<RigidBody>("Buggy2Body");
         //Joint.SetNodeA()
         Joint.Nodes__nodeA = "../Buggy2Body";
