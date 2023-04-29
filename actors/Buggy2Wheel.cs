@@ -37,16 +37,14 @@ public class Buggy2Wheel : RigidBody
     {
         base._PhysicsProcess(delta);
 
-        var ourTransform = Transform;
-        ourTransform.origin = new Godot.Vector3(0, 0, 0);
-
         var yRotation = GlobalRotation.y;
+        var ourTransform = new Transform(new Quat(new Vector3(0, yRotation, 0)), new Vector3(0, 0, 0));
 
-        var localSpaceSpeed = ourTransform.Xform(LinearVelocity);
+        var localSpaceSpeed = ourTransform.XformInv(LinearVelocity);
 
         var counterSlideForce = new Vector3(-localSpaceSpeed.x, 0, 0) * 4;
 
-        var worldSpaceCounterSlideForce = ourTransform.XformInv(counterSlideForce);
+        var worldSpaceCounterSlideForce = ourTransform.Xform(counterSlideForce);
 
         //AddForce(counterSlideForce, new Vector3(0, 0, 0));
 
