@@ -131,5 +131,10 @@ public class Buggy2 : Spatial
         {
             RightingForce = 10f;
         }
+
+        if (body.GlobalTranslation.x > 0 && body.GlobalTranslation.z > 0 && body.GlobalTranslation.y < -5)
+        {
+            GD.Print("IN THE PIT!");
+        }
     }
 }
