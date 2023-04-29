@@ -71,5 +71,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.0765, 1.48193, 58.4239 )
 [node name="RockField" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.0447, 0, 128.724 )
 script = ExtResource( 8 )
+NumRocks = 40
+FieldSize = 50.0
+RockScaling = 1.0
+
+[node name="RockField2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8205, 11.0475, -60.6287 )
+script = ExtResource( 8 )
+NumRocks = 6
+FieldSize = 20.0
+RockScaling = 5.0
 
 [editable path="heightmap"]

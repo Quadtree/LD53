@@ -3,11 +3,15 @@ using Godot;
 
 public class RockField : Spatial
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    [Export]
+    int NumRocks;
 
-    // Called when the node enters the scene tree for the first time.
+    [Export]
+    float FieldSize;
+
+    [Export]
+    float RockScaling;
+
     public override void _Ready()
     {
         CallDeferred(nameof(Setup));
@@ -15,12 +19,13 @@ public class RockField : Spatial
 
     void Setup()
     {
-        for (var i = 0; i < 40; ++i)
+        for (var i = 0; i < NumRocks; ++i)
         {
             var rock = GD.Load<PackedScene>($"res://actors/rocks/Rock{Util.RandInt(1, 5)}.tscn").Instance<Spatial>();
 
             AddChild(rock);
-            rock.GlobalTranslation = GlobalTranslation + new Vector3(Util.RandF(-50, 50), 3, Util.RandF(-50, 50));
+            rock.GlobalTranslation = GlobalTranslation + new Vector3(Util.RandF(-FieldSize, FieldSize), 3, Util.RandF(-FieldSize, FieldSize));
+            foreach (var it in rock.FindChildrenByType<Spatial>()) new Vector3(RockScaling, RockScaling, RockScaling);
         }
     }
 
