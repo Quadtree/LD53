@@ -38,7 +38,7 @@ public class InGameUI : Control
     {
         var pc = GetTree().CurrentScene.FindChildByType<Buggy2>();
 
-        this.FindChildByName<Label>("Label").Text = $"Time Left: {Mathf.RoundToInt(TimeLeft)}\nDeliveries: {Score}";//\nHas Cargo: {pc.HasCargo}\nDest: {pc.Destination}";
+        this.FindChildByName<Label>("Label").Text = $"Time Left: {Mathf.RoundToInt(TimeLeft) / 60}:{(Mathf.RoundToInt(TimeLeft) % 60).ToString().PadLeft(2, '0')}\nDeliveries: {Score}";//\nHas Cargo: {pc.HasCargo}\nDest: {pc.Destination}";
 
         TimeLeft -= delta;
 
