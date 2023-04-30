@@ -83,7 +83,7 @@ public class Buggy2Wheel : RigidBody
         $"localSpaceSpeed={Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.x).ToString().PadLeft(2)},{Mathf.RoundToInt(localSpaceSpeed.z).ToString().PadLeft(2)}\n" +
         $"Velocity={LinearVelocity}\nInContactWith={InContactWith.Count}\nTraction={Traction}";
 
-        if ((PrevLinearVel - LinearVelocity).Length() > 5f) Util.SpawnOneShotSound($"res://sounds/collision{Util.RandInt(0, 3)}.wav", this, GlobalTranslation, Util.Clamp((PrevLinearVel - LinearVelocity).Length(), 0, 20));
+        if ((PrevLinearVel - LinearVelocity).Length() > 5f) Util.SpawnOneShotSound($"res://sounds/collision{Util.RandInt(0, 3)}.wav", this, GlobalTranslation, Util.Clamp((PrevLinearVel - LinearVelocity).Length(), 0, 20) + 15);
         PrevLinearVel = LinearVelocity;
     }
 

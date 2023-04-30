@@ -29,7 +29,7 @@ public class MoonBase : Spatial
             else if (pc.Destination == this)
             {
                 GetTree().CurrentScene.FindChildByType<InGameUI>().Score += 1;
-                Util.SpawnOneShotSound("res://sounds/finish_delivery.wav", this, GlobalTranslation);
+                Util.SpawnOneShotSound("res://sounds/finish_delivery.wav", this, GlobalTranslation, overrideUnitDb: 30);
                 pc.HasCargo = false;
             }
         }
