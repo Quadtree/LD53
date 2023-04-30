@@ -48,7 +48,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62547, 6.89929 )
 far = 1000.0
 
 [node name="CameraTarget" type="Spatial" parent="Buggy2Body/Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29881, 0, -17.3723 )
 
 [node name="WheelRotator" type="Spatial" parent="Buggy2Body"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
