@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="LD53"
-run/main_scene="res://maps/Moon1.tscn"
+run/main_scene="res://maps/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
